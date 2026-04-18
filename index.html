@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darryl's Photo Gallery</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <!-- Login Screen -->
+        <section id="login-screen" class="screen active">
+            <div class="login-container">
+                <div class="login-header">
+                    <div class="login-icon">📸</div>
+                    <h1>Darryl's Gallery</h1>
+                    <p class="login-subtitle">Welcome, friend</p>
+                </div>
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" required autocomplete="username" placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required autocomplete="current-password" placeholder="Enter password">
+                    </div>
+                    <div id="login-error" class="error-message hidden">Invalid credentials. Please try again.</div>
+                    <button type="submit" class="btn-primary">Enter Gallery</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Gallery Screen -->
+        <section id="gallery-screen" class="screen">
+            <header class="gallery-header">
+                <button id="logout-btn" class="btn-logout">Logout</button>
+                <h1>Darryl's Gallery</h1>
+                <div class="user-badge" id="user-badge"></div>
+            </header>
+
+            <div class="gallery-info">
+                <p>Click any photo to view larger and rate or comment</p>
+            </div>
+
+            <div class="gallery-grid" id="gallery-grid">
+                <!-- Placeholder images - Replace src with actual photos -->
+                <div class="gallery-item" data-image-id="darryl-1">
+                    <div class="image-placeholder" style="background: linear-gradient(135deg, #2d3436, #636e72);">
+                        <span>Photo 1</span>
+                        <small>Replace with Darryl's photo</small>
+                    </div>
+                    <div class="image-overlay">
+                        <span class="photo-label">Photo 1</span>
+                        <div class="avg-rating" data-rating="0">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-count">(0)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-image-id="darryl-2">
+                    <div class="image-placeholder" style="background: linear-gradient(135deg, #636e72, #b2bec3);">
+                        <span>Photo 2</span>
+                        <small>Replace with Darryl's photo</small>
+                    </div>
+                    <div class="image-overlay">
+                        <span class="photo-label">Photo 2</span>
+                        <div class="avg-rating" data-rating="0">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-count">(0)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-image-id="darryl-3">
+                    <div class="image-placeholder" style="background: linear-gradient(135deg, #2d3436, #00cec9);">
+                        <span>Photo 3</span>
+                        <small>Replace with Darryl's photo</small>
+                    </div>
+                    <div class="image-overlay">
+                        <span class="photo-label">Photo 3</span>
+                        <div class="avg-rating" data-rating="0">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-count">(0)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-image-id="darryl-4">
+                    <div class="image-placeholder" style="background: linear-gradient(135deg, #6c5ce7, #a29bfe);">
+                        <span>Photo 4</span>
+                        <small>Replace with Darryl's photo</small>
+                    </div>
+                    <div class="image-overlay">
+                        <span class="photo-label">Photo 4</span>
+                        <div class="avg-rating" data-rating="0">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-count">(0)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-image-id="darryl-5">
+                    <div class="image-placeholder" style="background: linear-gradient(135deg, #fd79a8, #f8a5c2);">
+                        <span>Photo 5</span>
+                        <small>Replace with Darryl's photo</small>
+                    </div>
+                    <div class="image-overlay">
+                        <span class="photo-label">Photo 5</span>
+                        <div class="avg-rating" data-rating="0">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-count">(0)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-image-id="darryl-6">
+                    <div class="image-placeholder" style="background: linear-gradient(135deg, #fdcb6e, #ffeaa7);">
+                        <span>Photo 6</span>
+                        <small>Replace with Darryl's photo</small>
+                    </div>
+                    <div class="image-overlay">
+                        <span class="photo-label">Photo 6</span>
+                        <div class="avg-rating" data-rating="0">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-count">(0)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lightbox Modal -->
+        <div id="lightbox" class="lightbox hidden">
+            <div class="lightbox-content">
+                <button class="lightbox-close" id="lightbox-close">&times;</button>
+                <div class="lightbox-image-container">
+                    <img id="lightbox-image" src="" alt="Darryl">
+                </div>
+                <div class="lightbox-details">
+                    <h2 id="lightbox-title">Photo</h2>
+
+                    <!-- Rating Section -->
+                    <div class="rating-section">
+                        <h3>Rate This Photo</h3>
+                        <div class="star-rating" id="star-rating">
+                            <span class="star" data-value="1">★</span>
+                            <span class="star" data-value="2">★</span>
+                            <span class="star" data-value="3">★</span>
+                            <span class="star" data-value="4">★</span>
+                            <span class="star" data-value="5">★</span>
+                        </div>
+                        <p class="your-rating hidden" id="your-rating">Your rating: <span></span></p>
+                        <p class="avg-display">Average: <span id="avg-rating-display">0</span> (<span id="rating-count-display">0</span> ratings)</p>
+                    </div>
+
+                    <!-- Comments Section -->
+                    <div class="comments-section">
+                        <h3>Comments</h3>
+                        <div id="comments-list" class="comments-list">
+                            <p class="no-comments">No comments yet. Be the first!</p>
+                        </div>
+                        <form id="comment-form" class="comment-form">
+                            <textarea id="comment-text" placeholder="Write a comment..." required></textarea>
+                            <button type="submit" class="btn-secondary">Post Comment</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
